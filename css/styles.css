@@ -36,16 +36,15 @@ body {
   flex-direction: column;
 }
 
-.bus_control {
+/* .bus_control {
   display: flex;
   position: absolute;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   left: 64%;
   top: 0px;
   padding: 2px;
-  margin: 8px;
-  width: 2%;
+  width: 3%;
   border: 2px solid #000;
   background-color: #c1f2b0;
   bottom: 0px;
@@ -63,13 +62,12 @@ body {
 .bus_data {
   display: flex;
   position: absolute;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   left: 59%;
   top: 0px;
   padding: 2px;
-  margin: 10px;
-  width: 2%;
+  width: 3%;
   border: 2px solid #000;
   background-color: #65b741;
   bottom: 0px;
@@ -78,17 +76,16 @@ body {
 .bus_address {
   display: flex;
   position: absolute;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   left: 54%;
   top: 0px;
   padding: 2px;
-  margin: 10px;
-  width: 2%;
+  width: 3%;
   border: 2px solid #000;
   background-color: #ffb534;
   bottom: 0px;
-}
+} */
 
 .cpu {
   position: absolute;
@@ -105,7 +102,7 @@ body {
 
 .decode_unit {
   position: absolute;
-  top: 20%;
+  top: 2%;
   left: 1%;
   background-color: #ffc;
   border: 2px solid #000;
@@ -124,11 +121,6 @@ body {
 .value_address,
 .value_flag {
   transition: all 0.5s;
-}
-.value:hover,
-.value_address:hover,
-.value_flag:hover {
-  font-size: 1.5em;
 }
 
 .register_address {
@@ -169,85 +161,126 @@ body {
   z-index: 200;
 }
 
-.register:hover,
-.general_register:hover {
-  width: auto;
-  min-width: 32%;
-}
-
-.flag_register:hover {
-  width: auto;
-  min-width: 8%;
-}
-
 #reg_pc {
-  left: 20%;
+  left: 50%;
   top: 10px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #7752fe;
+  color: white;
 }
 
 #reg_mar {
-  right: 10px;
-  top: 10px;
+  right: 50px;
+  top: 450px;
+  width: 100px;
+  height: 100px;
+  background-color: #8acdd7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #reg_eax {
-  left: 39%;
-  top: 52%;
+  left: 37%;
+  top: 46%;
+  width: 200px;
+  background-color: #b99470;
+  color: white;
 }
 
 #reg_mbr {
-  right: 10px;
-  top: 65%;
+  right: 50px;
+  top: 600px;
+  width: 100px;
+  height: 100px;
+  background-color: #c1f2b0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #reg_ir {
   right: 10px;
-  top: 75%;
+  top: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #ff90bc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #reg_r1 {
-  left: 38%;
-  top: 15%;
+  left: 42%;
+  top: 65%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_r2 {
-  left: 38%;
-  top: 18%;
+  left: 42%;
+  top: 68%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_r3 {
-  left: 38%;
-  top: 21%;
+  left: 42%;
+  top: 71%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_r4 {
-  left: 38%;
-  top: 24%;
+  left: 42%;
+  top: 74%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_r5 {
-  left: 38%;
-  top: 27%;
+  left: 42%;
+  top: 77%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_r6 {
-  left: 38%;
-  top: 30%;
+  left: 42%;
+  top: 80%;
+  width: 210px;
+  background-color: #df826c;
+  color: white;
 }
 
 #reg_of {
-  left: 85%;
-  top: 30%;
+  right: 21%;
+  bottom: 5%;
+  width: 100px;
+  background-color: #fefae0;
 }
 
 #reg_cf {
-  left: 85%;
-  top: 37%;
+  right: 33%;
+  bottom: 5%;
+  width: 100px;
+  background-color: #fefae0;
 }
 
 #reg_zf {
-  left: 85%;
-  top: 44%;
+  right: 45%;
+  bottom: 5%;
+  width: 100px;
+  background-color: #fefae0;
 }
 
 #alu,
@@ -256,21 +289,27 @@ body {
   text-align: center;
   padding: 10px;
   display: block;
-  width: 30%;
-  border: 1px solid #000;
+  width: 15%;
+  height: 13%;
 }
 
 #alu {
-  left: 38%;
-  top: 37%;
-  background-color: #6db9ef;
+  left: 42%;
+  top: 30%;
   font-size: medium;
 }
 
 #cu {
-  right: 10px;
-  bottom: 10px;
-  background-color: #390;
+  top: 30%;
+  right: 40px;
+  background-color: #ff6c22;
+  font-size: medium;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  border: #000 solid 2px;
 }
 
 #drawing {
@@ -396,4 +435,11 @@ select {
   height: 30px;
   width: 300px;
   font-size: large;
+}
+
+nav {
+  padding: 0px 50px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #1b4242;
 }
