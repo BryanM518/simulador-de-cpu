@@ -1,705 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto Arquitectura</title>
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css" />
-  
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="lib/cpu.js"></script>
-    <script type="text/javascript" src="lib/raphael.min.js"></script>
-    <style>
-      #myCanvas {
-        position: absolute;
-        top: 260px;
-        /* Cambia esto según donde quieras colocar el canvas */
-        left: 50px;
-        /* Cambia esto según donde quieras colocar el canvas */
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Proyecto Arquitectura de computadores</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Arquitectura</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/cpu.js"></script>
+  <script type="text/javascript" src="lib/raphael.min.js"></script>
+  <style>
+    #myCanvas {
+      position: absolute;
+      top: 225px;
+      /* Cambia esto según donde quieras colocar el canvas */
+      left: 239px;
+      /* Cambia esto según donde quieras colocar el canvas */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Proyecto Arquitectura de computadores</h1>
+    <select name="" id="">
+      <option value="">Integrantes</option>
+      <option value="">Bryan Mauricio Gonzales Giraldo</option>
+      <option value="">Jhair Alexander Peña Aguirre</option>
+      <option value="">Albert David Perez Muñoz</option>
+    </select>
+  </header>
+  <div id="options" class="box">
+
+    <div class="sim">
       <h2>Simulador de CPU</h2>
-      <select name="" id="">
-        <option value="">Integrantes</option>
-        <option value="">Bryan Mauricio Gonzales Giraldo</option>
-        <option value="">Jhair Alexander Peña Aguirre</option>
-        <option value="">Albert David Perez Muñoz</option>
-      </select>
-    </header>
-<div id="options" class="box">
-      <h4><i class="fa fa-cog"></i>Opciones:</h4>
 
-      <div class="btn-group" role="group" aria-label="Reset">
-        <button
-          type="button"
-          class="btn btn_values btn-secondary"
-          id="btn_reset_ram"
-        >
-          <i class="fa fa-undo"></i> Limpiar Memoria
-        </button>
-        <button
-          type="button"
-          class="btn btn_values btn-secondary"
-          id="btn_reset_cpu"
-        >
-          <i class="fa fa-undo"></i> Limpiar CPU
-        </button>
-      </div>
-
-      <button
-        type="button"
-        class="btn btn-secondary"
-        id="btn_examples"
-        data-toggle="modal"
-        data-target="#modal_examples"
-      >Ejemplos
+    </div>
+    <div>
+      <button type="button" class="btn btn_values bg-warning" id="btn_reset_ram">
+        <i class="fa fa-undo"></i> Limpiar Memoria
       </button>
-
-
-      <div id="run_buttons" class="btn-group" role="group" aria-label="Run">
-        <button type="button" class="btn btn-secondary" id="btn_step">
-          <i class="fa fa-step-forward"></i> Paso a paso
-        </button>
-        <button type="button" class="btn btn-secondary" id="btn_run">
-          <i class="fa fa-play"></i> Ejecutar
-        </button>
-      </div>
-
-      <div id="hint">
-        <span id="hint_text"></span>
-      </div>
+      <button type="button" class="btn btn_values btn-warning" id="btn_reset_cpu">
+        <i class="fa fa-undo"></i> Limpiar CPU
+      </button>
+  
+      <button type="button" class="btn btn-success" id="btn_examples" data-toggle="modal"
+        data-target="#modal_examples">Ejemplos
+      </button>
+  
+  
+      <button type="button" class="btn btn-danger" id="btn_step">
+        <i class="fa fa-step-forward"></i> Paso a paso
+      </button>
+      <button type="button" class="btn btn-primary" id="btn_run">
+        <i class="fa fa-play"></i> Ejecutar
+      </button>
     </div>
 
-    <div id="cpu" class="box"></div>
+  </div>
 
-    <div id="modal_change_value" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-            <h4 class="modal-title" id="modal_change_value_title">
-              Valor
-            </h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              Valor actual: <span id="change_value_from"></span> cambiar por:
-              <input
-                type="text"
-                class="form-control edit-text"
-                id="change_value_to"
-              />
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              id="btn_change_value_ok"
-              class="btn btn-default"
-              data-dismiss="modal"
-            >
-              <i class="fa fa-check"></i> OK
-            </button>
-            <button type="button" class="btn" data-dismiss="modal">
-              <i class="fa fa-close"></i> Cancel
-            </button>
-          </div>
+
+  <div id="hint" class="pasos">
+    <span id="hint_text"></span>
+  </div>
+  <div id="cpu"></div>
+
+  <div id="modal_change_value" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title" id="modal_change_value_title">
+            Valor
+          </h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Valor actual: <span id="change_value_from"></span> cambiar por:
+            <input type="text" class="form-control edit-text" id="change_value_to" />
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_change_value_ok" class="btn btn-default" data-dismiss="modal">
+            <i class="fa fa-check"></i> OK
+          </button>
+          <button type="button" class="btn" data-dismiss="modal">
+            <i class="fa fa-close"></i> Cancel
+          </button>
         </div>
       </div>
     </div>
-    <div id="modal_examples" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-            <h4 class="modal-title" id="modal_change_value_title">
-              Ejemplos
-            </h4>
-          </div>
-          <div class="modal-body">
-            <ol>
-              <!-- <li>
+  </div>
+  <div id="modal_examples" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title" id="modal_change_value_title">
+            Ejemplos
+          </h4>
+        </div>
+        <div class="modal-body">
+          <ol>
+            <!-- <li>
                 <a href="?ram=18000000000000001B0000000000000018000000000000001B0000000000000"
                   >Ejemplo LOAD</a
                 > -->
-              </li>
-              <li>
-                <a href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000"
-                  >Sumar dos números</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000"
-                  >Restar dos números</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000"
-                  >Multiplicar dos números</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000"
-                  >Dividir dos números</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1"
-                  >Incrementar en 1 un numero</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1"
-                  >Decrementar en 1 un numero</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E58EF900FB000000000000000000000000000000000000000000000000000"
-                  >AND bit a bit</a 
-                >  <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E60EF900FB000000000000000000000000000000000000000000000000000"
-                  >OR bit a bit</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F50EF900FB000000000000000000000000000000000000000000000000000"
-                  >NOT bit a bit</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E38EFB000000000000000000000000000000000000000000000000000"
-                  >comparar</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF4000B000000000000000000000000000000000000000000000000000"
-                  >comparar - jump condicional</a
-                > <!-- Melo -->
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF4800B000000000000000000000000000000000000000000000000000"
-                  >comparar - JNZ salta si los numeros son diferentes</a
-                >
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF6800B000000000000000000000000000000000000000000000000000"
-                  >comparar - JA salta si es mayor</a
-                >
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF7000B000000000000000000000000000000000000000000000000000"
-                  >comparar - JAE salta si es mayor o igual</a
-                >
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF7800B000000000000000000000000000000000000000000000000000"
-                  >comparar - JB salta si es menor</a
-                >
-              </li>
-              <li>
-                <a href="?ram=880F880E38EF8000B000000000000000000000000000000000000000000000000000"
-                  >comparar - JBE salta si es menor o igual</a
-                >
-              </li>
-              <li>
-                <a href="?ram=880F201FB00000000000000000000000000000000000000000000000000000000000"
-                  >Move</a
-                >
-              </li>
-              
-              
-              
-            </ol>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              id="btn_import"
-              class="btn btn-default"
-              data-dismiss="modal"
-            >
-              <i class="fa fa-check"></i> Import
-            </button>
-            <button type="button" class="btn" data-dismiss="modal">
-              <i class="fa fa-close"></i> Cancel
-            </button>
-          </div>
+            </li>
+            <li>
+              <a href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000">Sumar dos números</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000">Restar dos números</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000">Multiplicar dos
+                números</a> <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000">Dividir dos números</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1">Incrementar en 1 un
+                numero</a> <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1">Decrementar en 1 un
+                numero</a> <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E58EF900FB000000000000000000000000000000000000000000000000000">AND bit a bit</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E60EF900FB000000000000000000000000000000000000000000000000000">OR bit a bit</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F50EF900FB000000000000000000000000000000000000000000000000000">NOT bit a bit</a>
+              <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E38EFB000000000000000000000000000000000000000000000000000">comparar</a> <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF4000B000000000000000000000000000000000000000000000000000">comparar - jump
+                condicional</a> <!-- Melo -->
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF4800B000000000000000000000000000000000000000000000000000">comparar - JNZ salta
+                si los numeros son diferentes</a>
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF6800B000000000000000000000000000000000000000000000000000">comparar - JA salta si
+                es mayor</a>
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF7000B000000000000000000000000000000000000000000000000000">comparar - JAE salta
+                si es mayor o igual</a>
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF7800B000000000000000000000000000000000000000000000000000">comparar - JB salta si
+                es menor</a>
+            </li>
+            <li>
+              <a href="?ram=880F880E38EF8000B000000000000000000000000000000000000000000000000000">comparar - JBE salta
+                si es menor o igual</a>
+            </li>
+            <li>
+              <a href="?ram=880F201FB00000000000000000000000000000000000000000000000000000000000">Move</a>
+            </li>
+
+
+
+          </ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_import" class="btn btn-default" data-dismiss="modal">
+            <i class="fa fa-check"></i> Import
+          </button>
+          <button type="button" class="btn" data-dismiss="modal">
+            <i class="fa fa-close"></i> Cancel
+          </button>
         </div>
       </div>
     </div>
-  
-    <canvas id="myCanvas" width="1300" height="1000">
-      Tu navegador no soporta el elemento canvas de HTML5.
-    </canvas>
-    <script>
-      var canvas = document.getElementById('myCanvas');
-      var ctx = canvas.getContext('2d');
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(490, 15);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(490, 70);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(830, 15);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(830, 70);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(486, 70);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(834, 70);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(590, 70);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(590, 450);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(450, 240);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(715, 240);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(480, 330);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(675, 330);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(480, 446);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(480, 500);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(676, 326);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(676, 720);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(676, 400);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(746, 400);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(676, 566);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(746, 566);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(425, 686);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(675, 686);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(429, 686);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(429, 720);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(539, 686);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(539, 720);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-  
-      "-----------------------------------------------------------------"
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = "8";
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "red";
-  
-      // Mueve el pincel a la posición especificada
-      ctx.moveTo(476, 446);
-  
-      // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
-      ctx.lineTo(590, 446);
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      "-----------------------------------------------------------------"
-  
-      // Define los puntos del polígono
-      var puntos = [125, 155, 150, 210, 175, 155, 215, 155, 175, 255, 125, 255, 85, 155];
-  
-      // Ajusta los puntos para mover el polígono 50px a la derecha y 100px hacia abajo
-      for (var i = 0; i < puntos.length; i++) {
-        if (i % 2 == 0) {
-          puntos[i] += 280; // Mueve a la derecha
-        } else {
-          puntos[i] += 30; // Mueve hacia abajo
-        }
+  </div>
+
+  <canvas id="myCanvas" width="660" height="500">
+    Tu navegador no soporta el elemento canvas de HTML5.
+  </canvas>
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(150, 15);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(150, 70);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(355, 15);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(355, 70);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(146, 70);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(359, 70);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(220, 70);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(220, 274);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(130, 140);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(280, 140);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(158, 270);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(310, 270);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(160, 266);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(160, 320);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(276, 270);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(276, 480);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(76, 446);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(275, 446);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(165, 446);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(165, 480);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(185, 240);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(224, 240);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(80, 446);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(80, 476);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+
+    "-----------------------------------------------------------------"
+    // ----------------------------
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = "8";
+
+    // Define el color de la línea
+    ctx.strokeStyle = "red";
+
+    // Mueve el pincel a la posición especificada
+    ctx.moveTo(276, 396);
+
+    // Dibuja una línea desde la posición actual del pincel hasta la posición especificada
+    ctx.lineTo(310, 396);
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    "-----------------------------------------------------------------"
+
+    // Define los puntos del polígono
+    var puntos = [125, 155, 150, 210, 175, 155, 215, 155, 175, 255, 125, 255, 85, 155];
+
+    // Ajusta los puntos para mover el polígono 50px a la derecha y 100px hacia abajo
+    for (var i = 0; i < puntos.length; i++) {
+      if (i % 2 == 0) {
+        puntos[i] += -60; // Mueve a la derecha
+      } else {
+        puntos[i] += -50; // Mueve hacia abajo
       }
-  
-      // Comienza un nuevo camino
-      ctx.beginPath();
-  
-      // Mueve el pincel al primer punto
-      ctx.moveTo(puntos[0], puntos[1]);
-  
-      // Dibuja las líneas para formar el polígono
-      for (var i = 2; i < puntos.length; i += 2) {
-        ctx.lineTo(puntos[i], puntos[i + 1]);
-      }
-  
-      // Cierra el camino para formar el polígono
-      ctx.closePath();
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = 2;
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "black";
-  
-      // Define el color de relleno
-      ctx.fillStyle = "#c5e0dc";
-  
-      // Dibuja el camino que has definido con moveTo() y lineTo()
-      ctx.stroke();
-  
-      // Rellena el polígono
-      ctx.fill();
-  
-      "-----------------------------------------------------------------"
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = 60;
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "#95fab9";
-  
-      // Dibuja la primera línea
-      ctx.beginPath();
-      ctx.moveTo(912, 160);
-      ctx.lineTo(1207, 160);
-      ctx.stroke();
-  
-      // Dibuja las puntas de flecha
-      ctx.fillStyle = "#95fab9";
-      ctx.beginPath();
-      ctx.moveTo(890, 160);
-      ctx.lineTo(920, 120);
-      ctx.lineTo(920, 200);
-      ctx.closePath();
-      ctx.fill();
-  
-      ctx.beginPath();
-      ctx.moveTo(1227, 160);
-      ctx.lineTo(1197, 120);
-      ctx.lineTo(1197, 200);
-      ctx.closePath();
-      ctx.fill();
-  
-      "-----------------------------------------------------------------"
-  
-      // Define el 'grosor' de la línea
-      ctx.font = "25px Arial";
-  
-      // Define el color del texto
-      ctx.fillStyle = "black";
-  
-      // Agrega el texto al canvas
-      ctx.fillText("Bus de Datos", 980, 270);
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = 60;
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "#84b6f4";
-  
-      // Dibuja la primera línea
-      ctx.beginPath();
-      ctx.moveTo(912, 280);
-      ctx.lineTo(1207, 280);
-      ctx.stroke();
-  
-      // Dibuja las puntas de flecha
-      ctx.fillStyle = "#84b6f4";
-      ctx.beginPath();
-      ctx.moveTo(890, 280);
-      ctx.lineTo(920, 240);
-      ctx.lineTo(920, 320);
-      ctx.closePath();
-      ctx.fill();
-  
-      ctx.beginPath();
-      ctx.moveTo(1227, 280);
-      ctx.lineTo(1197, 240);
-      ctx.lineTo(1197, 320);
-      ctx.closePath();
-      ctx.fill();
-  
-  
-  
-  
-      "-----------------------------------------------------------------"
-  
-      // Define el 'grosor' de la línea
-      ctx.lineWidth = 60;
-  
-      // Define el color de la línea
-      ctx.strokeStyle = "#f9d99a";
-  
-      // Dibuja la primera línea
-      ctx.beginPath();
-      ctx.moveTo(912, 400);
-      ctx.lineTo(1207, 400);
-      ctx.stroke();
-  
-      // Dibuja las puntas de flecha
-      ctx.fillStyle = "#f9d99a";
-      ctx.beginPath();
-      ctx.moveTo(890, 400);
-      ctx.lineTo(920, 360);
-      ctx.lineTo(920, 440);
-      ctx.closePath();
-      ctx.fill();
-  
-      ctx.beginPath();
-      ctx.moveTo(1227, 400);
-      ctx.lineTo(1197, 360);
-      ctx.lineTo(1197, 440);
-      ctx.closePath();
-      ctx.fill();
-  
-      "-----------------------------------------------------------------"
-  
-      // Define el 'grosor' de la línea
-      ctx.font = "20px Arial";
-  
-      // Define el color del texto
-      ctx.fillStyle = "black";
-  
-      // Agrega el texto al canvas
-      ctx.fillText("Bus de Datos", 990, 170);
-  
-  
-      // Define el color del texto
-      ctx.fillStyle = "black";
-  
-      // Agrega el texto al canvas
-      ctx.fillText("Bus de Registro", 990, 290);
-  
-      // Define el color del texto
-      ctx.fillStyle = "black";
-  
-      // Agrega el texto al canvas
-      ctx.fillText("Bus de Control", 990, 410);
-    </script>
-  </body>
+    }
+
+    // Comienza un nuevo camino
+    ctx.beginPath();
+
+    // Mueve el pincel al primer punto
+    ctx.moveTo(puntos[0], puntos[1]);
+
+    // Dibuja las líneas para formar el polígono
+    for (var i = 2; i < puntos.length; i += 2) {
+      ctx.lineTo(puntos[i], puntos[i + 1]);
+    }
+
+    // Cierra el camino para formar el polígono
+    ctx.closePath();
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = 2;
+
+    // Define el color de la línea
+    ctx.strokeStyle = "black";
+
+    // Define el color de relleno
+    ctx.fillStyle = "#c5e0dc";
+
+    // Dibuja el camino que has definido con moveTo() y lineTo()
+    ctx.stroke();
+
+    // Rellena el polígono
+    ctx.fill();
+
+    "-----------------------------------------------------------------"
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = 50;
+
+    // Define el color de la línea
+    ctx.strokeStyle = "#95fab9";
+
+    // Dibuja la primera línea
+    ctx.beginPath();
+    ctx.moveTo(467, 150);
+    ctx.lineTo(620, 150);
+    ctx.stroke();
+
+    // Dibuja las puntas de flecha
+    ctx.fillStyle = "#95fab9";
+    ctx.beginPath();
+    ctx.moveTo(430, 150);
+    ctx.lineTo(475, 110);
+    ctx.lineTo(475, 190);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(655, 150);
+    ctx.lineTo(615, 110);
+    ctx.lineTo(615, 190);
+    ctx.closePath();
+    ctx.fill();
+
+    //95fab9
+
+    "-----------------------------------------------------------------"
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = 50;
+
+    // Define el color de la línea
+    ctx.strokeStyle = "#84b6f4";
+
+    // Dibuja la primera línea
+    ctx.beginPath();
+    ctx.moveTo(467, 250);
+    ctx.lineTo(620, 250);
+    ctx.stroke();
+
+    // Dibuja las puntas de flecha
+    ctx.fillStyle = "#84b6f4";
+    ctx.beginPath();
+    ctx.moveTo(430, 250);
+    ctx.lineTo(475, 210);
+    ctx.lineTo(475, 290);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(655, 250);
+    ctx.lineTo(615, 210);
+    ctx.lineTo(615, 290);
+    ctx.closePath();
+    ctx.fill();
+
+    // 84b6f4
+
+
+    "-----------------------------------------------------------------"
+
+    // Define el 'grosor' de la línea
+    ctx.lineWidth = 50;
+
+    // Define el color de la línea
+    ctx.strokeStyle = "#f9d99a";
+
+    // Dibuja la primera línea
+    ctx.beginPath();
+    ctx.moveTo(467, 350);
+    ctx.lineTo(620, 350);
+    ctx.stroke();
+
+    // Dibuja las puntas de flecha
+    ctx.fillStyle = "#f9d99a";
+    ctx.beginPath();
+    ctx.moveTo(430, 350);
+    ctx.lineTo(475, 310);
+    ctx.lineTo(475, 390);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(655, 350);
+    ctx.lineTo(615, 310);
+    ctx.lineTo(615, 390);
+    ctx.closePath();
+    ctx.fill();
+
+    "-----------------------------------------------------------------"
+
+    // Define el 'grosor' de la línea
+    ctx.font = "17px Arial";
+
+    // Define el color del texto
+    ctx.fillStyle = "black";
+
+    // Agrega el texto al canvas
+    ctx.fillText("Bus de Datos", 490, 160);
+
+    // Define el color del texto
+    ctx.fillStyle = "black";
+
+    // Agrega el texto al canvas
+    ctx.fillText("Bus de Registro", 485, 260);
+
+    // Define el color del texto
+    ctx.fillStyle = "black";
+
+    // Agrega el texto al canvas
+    ctx.fillText("Bus de Control", 485, 360);
+  </script>
+</body>
+
 </html>
