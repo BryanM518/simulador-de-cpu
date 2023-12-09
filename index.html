@@ -78,89 +78,130 @@
         </div>
       </div>
     </div>
-  </div>
-  <div id="modal_examples" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4 class="modal-title" id="modal_change_value_title">
-            Ejemplos
-          </h4>
-        </div>
-        <div class="modal-body">
-          <ol>
-            <li>
-              <a href="?ram=18000000000000001B0000000000000018000000000000001B0000000000000">Ejemplo LOAD</a>
-            </li>
-            <li>
-              <a href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000">Sumar dos números</a>
-            </li>
-            <li>
-              <a href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000">Restar dos números</a>
-            </li>
-            <li>
-              <a href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000">Multiplicar dos
-                números</a>
-            </li>
-            <li>
-              <a href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000">Dividir dos números</a>
-            </li>
-            <li>
-              <a href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1">Incrementar en 1 un
-                numero</a>
-            </li>
-            <li>
-              <a href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1">Decrementar en 1 un
-                numero</a>
-            </li>
-            <li>
-              <a href="?ram=D0000000000000000000000000000001">AND bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D128D188E20000000000000000000000">OR bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D12898E2000000000000000000000000">NOT bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D128D1A8000000000000000000000000">comparar</a>
-            </li>
-            <li>
-              <a href="?ram=D128D1A8B6E228000000000000000000">comparar - jump condicional</a>
-            </li>
-            <li>
-              <a href="?ram=D128D1A8C6E228000000000000000000">comparar - JG(jump if greater) salta si es mayor</a>
-            </li>
-            <li>
-              <a href="?ram=F8000000000000001B00000000000000">clear</a>
-            </li>
-            <li>
-              <a href="?ram=D128D178E20000000000000000000000">AND bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D128D188E20000000000000000000000">OR bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D12898E2000000000000000000000000">NOT bit a bit</a>
-            </li>
-            <li>
-              <a href="?ram=D128D1A8000000000000000000000000">comparar</a>
-            </li>
-            <li>
-              <a href="?ram=D128D1A8B6E228000000000000000000">comparar - jump condicional</a>
-          </ol>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="btn_import" class="btn btn-default" data-dismiss="modal">
-            <i class="fa fa-check"></i> Import
-          </button>
-          <button type="button" class="btn" data-dismiss="modal">
-            <i class="fa fa-close"></i> Cancel
-          </button>
+
+    <div id="modal_examples" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title" id="modal_change_value_title">
+              Ejemplos
+            </h4>
+          </div>
+          <div class="modal-body">
+            <ol>
+              <!-- <li>
+                <a href="?ram=18000000000000001B0000000000000018000000000000001B0000000000000"
+                  >Ejemplo LOAD</a
+                > -->
+              </li>
+              <li>
+                <a href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000"
+                  >Sumar dos números</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000"
+                  >Restar dos números</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000"
+                  >Multiplicar dos números</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000"
+                  >Dividir dos números</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1"
+                  >Incrementar en 1 un numero</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1"
+                  >Decrementar en 1 un numero</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E58EF900FB000000000000000000000000000000000000000000000000000"
+                  >AND bit a bit</a 
+                >  <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E60EF900FB000000000000000000000000000000000000000000000000000"
+                  >OR bit a bit</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F50EF900FB000000000000000000000000000000000000000000000000000"
+                  >NOT bit a bit</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E38EFB000000000000000000000000000000000000000000000000000"
+                  >comparar</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF4000B000000000000000000000000000000000000000000000000000"
+                  >comparar - jump condicional</a
+                > <!-- Melo -->
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF4800B000000000000000000000000000000000000000000000000000"
+                  >comparar - JNZ salta si los numeros son diferentes</a
+                >
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF6800B000000000000000000000000000000000000000000000000000"
+                  >comparar - JA salta si es mayor</a
+                >
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF7000B000000000000000000000000000000000000000000000000000"
+                  >comparar - JAE salta si es mayor o igual</a
+                >
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF7800B000000000000000000000000000000000000000000000000000"
+                  >comparar - JB salta si es menor</a
+                >
+              </li>
+              <li>
+                <a href="?ram=880F880E38EF8000B000000000000000000000000000000000000000000000000000"
+                  >comparar - JBE salta si es menor o igual</a
+                >
+              </li>
+              <li>
+                <a href="?ram=880F201FB00000000000000000000000000000000000000000000000000000000000"
+                  >Move</a
+                >
+              </li>
+              
+              
+              
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="btn_import"
+              class="btn btn-default"
+              data-dismiss="modal"
+            >
+              <i class="fa fa-check"></i> Import
+            </button>
+            <button type="button" class="btn" data-dismiss="modal">
+              <i class="fa fa-close"></i> Cancel
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
