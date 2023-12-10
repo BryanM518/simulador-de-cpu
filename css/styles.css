@@ -1,14 +1,40 @@
 body {
   /* font-family: 'VT323', monospace; */
   font-size: 10.5px;
+  background-color: #EEE7DA;
 }
+
 
 .box {
   padding: 5px 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 0px 20px;
+  background-color: #1b4242;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5px;
 }
+
+.pasos {
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding-right: 20px;
+  position: absolute;
+  z-index: 100;
+  top: 22%;
+  width: 100%;
+}
+
+.sim {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1b4242;
+  color: #9ec8b9;
+}
+
 .ram {
   position: absolute;
   bottom: 0px;
@@ -20,10 +46,45 @@ body {
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-  background-color: #ffad84;
+  color: white;
+  background-color: #1B4242;
 }
-.ram table {
-  background-color: #fff;
+
+.ram td, .ram th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: black;
+  text-align: center;
+}
+
+.ram h3 {
+  text-align: center;
+  color: white;
+}
+
+.ram tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+.ram th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+  text-align: center;
+}
+
+#ramButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+
+#ramButtons button {
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 #cpu {
@@ -31,10 +92,6 @@ body {
   height: 95vh;
 }
 
-#bus {
-  display: flex;
-  flex-direction: column;
-}
 
 /* .bus_control {
   display: flex;
@@ -104,17 +161,32 @@ body {
   position: absolute;
   top: 2%;
   left: 1%;
-  background-color: #ffc;
+  background-color: #1B4242;
   border: 2px solid #000;
   padding: 10px;
   overflow-y: scroll;
   bottom: 5%;
-  max-width: 50%;
-  width: 33%;
+  width: 35%;
+  color: white;
+  font-weight: bold;
 }
 
-.decode_unit table {
-  background-color: #fff;
+.decode_unit td, .decode_unit th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: black;
+}
+
+.decode_unit tr:nth-child(even){background-color: #f2f2f2;}
+
+.decode_unit tr:hover {background-color: #ddd;}
+
+.decode_unit th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
 }
 
 .value,
@@ -171,36 +243,44 @@ body {
   justify-content: center;
   background-color: #7752fe;
   color: white;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_mar {
-  right: 50px;
-  top: 450px;
+  right: 15px;
+  top: 300px;
   width: 100px;
   height: 100px;
   background-color: #8acdd7;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_eax {
   left: 37%;
-  top: 46%;
-  width: 200px;
+  top: 48.5%;
+  width: 170px;
   background-color: #b99470;
   color: white;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_mbr {
-  right: 50px;
-  top: 600px;
+  right: 15px;
+  top: 420px;
   width: 100px;
   height: 100px;
   background-color: #c1f2b0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_ir {
@@ -212,10 +292,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_r1 {
-  left: 42%;
+  left: 40%;
   top: 65%;
   width: 210px;
   background-color: #df826c;
@@ -223,57 +305,62 @@ body {
 }
 
 #reg_r2 {
-  left: 42%;
-  top: 68%;
+  left: 40%;
+  top: 68.1%;
   width: 210px;
   background-color: #df826c;
   color: white;
 }
 
 #reg_r3 {
-  left: 42%;
-  top: 71%;
+  left: 40%;
+  top: 71.3%;
   width: 210px;
   background-color: #df826c;
   color: white;
 }
 
 #reg_r4 {
-  left: 42%;
-  top: 74%;
+  left: 40%;
+  top: 74.4%;
   width: 210px;
   background-color: #df826c;
   color: white;
 }
 
 #reg_r5 {
-  left: 42%;
-  top: 77%;
+  left: 40%;
+  top: 77.5%;
   width: 210px;
   background-color: #df826c;
   color: white;
 }
 
 #reg_r6 {
-  left: 42%;
-  top: 80%;
+  left: 40%;
+  top: 80.6%;
   width: 210px;
   background-color: #df826c;
   color: white;
 }
 
 #reg_of {
-  right: 21%;
+  right: 13%;
   bottom: 5%;
   width: 100px;
   background-color: #fefae0;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_cf {
-  right: 33%;
+  right: 29%;
   bottom: 5%;
   width: 100px;
   background-color: #fefae0;
+  margin: 0px 10px;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #reg_zf {
@@ -281,6 +368,9 @@ body {
   bottom: 5%;
   width: 100px;
   background-color: #fefae0;
+  margin: 0px 20px;
+  border: #000 solid 2px;
+  border-radius: 5px;
 }
 
 #alu,
@@ -294,14 +384,16 @@ body {
 }
 
 #alu {
-  left: 42%;
-  top: 30%;
+  left: 41.5%;
+  top: 38%;
   font-size: medium;
+  z-index: 100;
+  font-weight: bold;
 }
 
 #cu {
-  top: 30%;
-  right: 40px;
+  top: 26%;
+  right: 25px;
   background-color: #ff6c22;
   font-size: medium;
   color: white;
@@ -310,6 +402,8 @@ body {
   display: flex;
   border-radius: 5px;
   border: #000 solid 2px;
+  width: 120px;
+  height: 120px;
 }
 
 #drawing {
@@ -404,10 +498,10 @@ body {
 
 @keyframes highlight {
   from {
-    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);;
   }
   to {
-    box-shadow: 0px 0px 30px rgba(255, 0, 0, 1);
+    box-shadow: 0px 0px 30px rgba(0, 255, 0, 1);;
   }
 }
 
