@@ -42,24 +42,16 @@
 
     </div>
     <div>
-      <button type="button" class="btn btn_values bg-warning" id="btn_reset_ram">
-        <i class="fa fa-undo"></i> Limpiar Memoria
-      </button>
-      <button type="button" class="btn btn_values btn-warning" id="btn_reset_cpu">
-        <i class="fa fa-undo"></i> Limpiar CPU
-      </button>
-  
-      <button type="button" class="btn btn-success" id="btn_examples" data-toggle="modal"
-        data-target="#modal_examples">Ejemplos
-      </button>
-  
-  
-      <button type="button" class="btn btn-danger" id="btn_step">
-        <i class="fa fa-step-forward"></i> Paso a paso
-      </button>
+      
       <button type="button" class="btn btn-primary" id="btn_run">
-        <i class="fa fa-play"></i> Ejecutar
+        <i class="fa fa-play"></i> Arrancar
       </button>
+      <button type="button" class="btn btn-success" id="btn_examples" data-toggle="modal"
+        data-target="#modal_examples">Pruebas
+      </button>
+          <button type="button" class="btn btn-danger" id="btn_step">
+            <i class="fa fa-step-forward"></i> Paso a paso
+          </button>
     </div>
 
   </div>
@@ -108,93 +100,90 @@
             &times;
           </button>
           <h4 class="modal-title" id="modal_change_value_title">
-            Ejemplos
+            Pruebas
           </h4>
         </div>
         <div class="modal-body">
-          <ol>
+          <ul>
             <!-- <li>
                 <a href="?ram=18000000000000001B0000000000000018000000000000001B0000000000000"
                   >Ejemplo LOAD</a
                 > -->
             </li>
             <li>
-              <a href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000">Sumar dos números</a>
+              <a class="enlaces" href="?ram=880F880E00EF900FB00000000000000000000000000000000000000000000000">Sumar dos números</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000">Restar dos números</a>
+              <a class="enlaces" href="?ram=880F880E08EF900FB00000000000000000000000000000000000000000000000">Restar dos números</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000">Multiplicar dos
+              <a class="enlaces" href="?ram=880F880E10EF900FB00000000000000000000000000000000000000000000000">Multiplicar dos
                 números</a> <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000">Dividir dos números</a>
+              <a class="enlaces" href="?ram=880F880E18EF900FB00000000000000000000000000000000000000000000000">Dividir dos números</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1">Incrementar en 1 un
+              <a class="enlaces" href="?ram=300F900FB0000000000000000000000000000000000000000000000000000FA1">Incrementar en 1 un
                 numero</a> <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1">Decrementar en 1 un
+              <a class="enlaces" href="?ram=280F900FB0000000000000000000000000000000000000000000000000005CB1">Decrementar en 1 un
                 numero</a> <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E58EF900FB000000000000000000000000000000000000000000000000000">AND bit a bit</a>
+              <a class="enlaces" href="?ram=880F880E58EF900FB000000000000000000000000000000000000000000000000000">AND bit a bit</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E60EF900FB000000000000000000000000000000000000000000000000000">OR bit a bit</a>
+              <a class="enlaces" href="?ram=880F880E60EF900FB000000000000000000000000000000000000000000000000000">OR bit a bit</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F50EF900FB000000000000000000000000000000000000000000000000000">NOT bit a bit</a>
+              <a class="enlaces" href="?ram=880F50EF900FB000000000000000000000000000000000000000000000000000">NOT bit a bit</a>
               <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E38EFB000000000000000000000000000000000000000000000000000">comparar</a> <!-- Melo -->
+              <a class="enlaces" href="?ram=880F880E38EFB000000000000000000000000000000000000000000000000000">comparar</a> <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E38EF4000B000000000000000000000000000000000000000000000000000">comparar - jump
+              <a class="enlaces" href="?ram=880F880E38EF4000B000000000000000000000000000000000000000000000000000">comparar - jump
                 condicional</a> <!-- Melo -->
             </li>
             <li>
-              <a href="?ram=880F880E38EF4800B000000000000000000000000000000000000000000000000000">comparar - JNZ salta
+              <a class="enlaces" href="?ram=880F880E38EF4800B000000000000000000000000000000000000000000000000000">comparar - JNZ salta
                 si los numeros son diferentes</a>
             </li>
             <li>
-              <a href="?ram=880F880E38EF6800B000000000000000000000000000000000000000000000000000">comparar - JA salta si
+              <a class="enlaces" href="?ram=880F880E38EF6800B000000000000000000000000000000000000000000000000000">comparar - JA salta si
                 es mayor</a>
             </li>
             <li>
-              <a href="?ram=880F880E38EF7000B000000000000000000000000000000000000000000000000000">comparar - JAE salta
+              <a class="enlaces" href="?ram=880F880E38EF7000B000000000000000000000000000000000000000000000000000">comparar - JAE salta
                 si es mayor o igual</a>
             </li>
             <li>
-              <a href="?ram=880F880E38EF7800B000000000000000000000000000000000000000000000000000">comparar - JB salta si
+              <a class="enlaces" href="?ram=880F880E38EF7800B000000000000000000000000000000000000000000000000000">comparar - JB salta si
                 es menor</a>
             </li>
             <li>
-              <a href="?ram=880F880E38EF8000B000000000000000000000000000000000000000000000000000">comparar - JBE salta
+              <a class="enlaces" href="?ram=880F880E38EF8000B000000000000000000000000000000000000000000000000000">comparar - JBE salta
                 si es menor o igual</a>
             </li>
             <li>
-              <a href="?ram=880F201FB00000000000000000000000000000000000000000000000000000000000">Move</a>
+              <a class="enlaces" href="?ram=880F201FB00000000000000000000000000000000000000000000000000000000000">Move</a>
             </li>
-
-
-
-          </ol>
+          </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn_import" class="btn btn-default" data-dismiss="modal">
-            <i class="fa fa-check"></i> Import
+          <button type="button" id="btn_import" class="btn btn-default btn-success" data-dismiss="modal">
+            <i class="fa fa-check"></i> Aceptar
           </button>
-          <button type="button" class="btn" data-dismiss="modal">
-            <i class="fa fa-close"></i> Cancel
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            <i class="fa fa-close"></i> Cancelar
           </button>
         </div>
       </div>

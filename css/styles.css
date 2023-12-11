@@ -69,7 +69,6 @@ body {
 .ram th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #04AA6D;
   color: white;
   text-align: center;
@@ -90,6 +89,13 @@ body {
 #cpu {
   position: relative;
   height: 95vh;
+}
+
+.modal-title {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: xx-large;
 }
 
 
@@ -169,12 +175,15 @@ body {
   width: 35%;
   color: white;
   font-weight: bold;
+  text-align: center;
 }
 
 .decode_unit td, .decode_unit th {
   border: 1px solid #ddd;
   padding: 8px;
   color: black;
+  text-align: center;
+
 }
 
 .decode_unit tr:nth-child(even){background-color: #f2f2f2;}
@@ -182,6 +191,7 @@ body {
 .decode_unit tr:hover {background-color: #ddd;}
 
 .decode_unit th {
+  text-align: center;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -536,4 +546,19 @@ nav {
   display: flex;
   justify-content: space-around;
   background-color: #1b4242;
+}
+
+.enlaces {
+  color: #000;
+  font-weight: bold;
+  font-size: small;
+
+}
+
+.enlaces:hover{
+  color: red;
+}
+
+.modalito {
+  background-color: red;
 }
